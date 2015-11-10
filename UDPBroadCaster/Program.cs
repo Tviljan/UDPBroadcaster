@@ -50,7 +50,7 @@ namespace UDPBroadCaster
 
             using (var client = new UdpClient())
             {
-                
+                client.EnableBroadcast = true;
                 IPEndPoint ip = new IPEndPoint(IPAddress.Parse("172.16.10.255"), 1900);
                 byte[] bytes = Encoding.ASCII.GetBytes(message);
                 client.Send(bytes, bytes.Length, ip);
